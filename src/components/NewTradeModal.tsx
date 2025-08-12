@@ -138,7 +138,7 @@ export function NewTradeModal({ onTradeAdded }: NewTradeModalProps) {
           result: formData.result,
           notes: formData.notes || null,
           image_url: imageUrl,
-          risk_percentage: formData.risk_percentage ? Number(formData.risk_percentage) : 1.0,
+          ...(formData.risk_percentage && { risk_percentage: Number(formData.risk_percentage) }),
         });
 
       if (error) {

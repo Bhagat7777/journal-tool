@@ -76,7 +76,7 @@ export function EditTradeModal({ trade, isOpen, onClose, onTradeUpdated }: EditT
         rr: formData.rr ? Number(formData.rr) : null,
         result: formData.result,
         notes: formData.notes || null,
-        risk_percentage: formData.risk_percentage ? Number(formData.risk_percentage) : null,
+        ...(formData.risk_percentage && { risk_percentage: Number(formData.risk_percentage) }),
       };
 
       const { error } = await supabase

@@ -131,7 +131,7 @@ export function useTrades() {
     }
     
     // Calculate risk amount using trade's risk percentage or account default
-    const riskPercentage = trade.risk_percentage || account.risk_per_trade;
+    const riskPercentage = trade.risk_percentage || account.risk_per_trade || 1.0;
     const riskAmount = account.current_balance * (riskPercentage / 100);
     
     if (trade.result.toLowerCase() === 'win') {
